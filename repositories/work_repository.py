@@ -1,3 +1,4 @@
+#from controllers.museums_controller import museums -- wrong import
 from db.run_sql import run_sql
 
 from models.museum import Museum
@@ -20,8 +21,10 @@ def select_all():
     sql = "SELECT * FROM works"
     results = run_sql(sql)
 
+    museums_list = museum_repository.select_all()
+
     for row in results:
-        work = Work(row['title'], row['artist'], row['year'], row['museum_id'])
+        work = Work(row['title'], row['artist'], row['year'], museums_list[row['museum_id'] - 1]) # check
         works.append(work)
     return works
 
@@ -32,8 +35,10 @@ def select(id):
     values = [id]
     result = run_sql(sql, values)[0]
 
+    museums = museum_repository.select_all()
+
     if result is not None:
-        work = Work(result['title'], result['artist'], result['year'], result['museum_id'])
+        work = Work(result['title'], result['artist'], result['year'], museums[result['museum_id'] - 1]) # check
     return work
 
 

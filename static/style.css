@@ -1,6 +1,39 @@
 body{
   font-family: "Helvetica", arial, sans-serif; font-size: 16px;
-  background-color: lightcyan;
-  color: rgb(16, 92, 180);
+  background-color: rgb(238, 235, 235);
+  color: black;
 
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: rgb(164, 86, 164);
+}
+
+li {
+  float: left;
+}
+
+li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+/* Change the link color to #111 (black) on hover */
+li a:hover {
+  background-color: #111;
+}
+
+form {
+  display: flexbox;
+}
+
+section {
+text-align: center;
+margin: 30px;
 }
